@@ -18,7 +18,7 @@ EXPOSE 6688/udp
 
 EXPOSE 8000
 
-RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+# RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum -y install python36u python36u-pip
 RUN pip3.6 install requests
 RUN pip3.6 install Flask
