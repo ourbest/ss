@@ -24,5 +24,6 @@ RUN pip3.6 install requests
 RUN pip3.6 install Flask
 
 EXPOSE 5000
+ADD flask.conf /etc/supervisord.d/flask.conf
 
 ADD code /root/code
