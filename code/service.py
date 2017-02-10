@@ -20,7 +20,7 @@ def server():
     }
     for container in val['data']:
         attrs = container['attributes']
-        if attrs['image_name'].find('ourbest/ss-kcp'):
+        if attrs['image_name'].find('ourbest/ss-kcp') == 0:
             for port in attrs['port_mappings'][0]:
                 server = port['host']
                 server = server[server.find('-') + 1:server.find('.')].replace('-', '.')
