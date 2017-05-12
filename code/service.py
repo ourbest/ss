@@ -1,17 +1,25 @@
+import base64
 import json
+import os
 
-from flask import Flask
 import requests
+from flask import Flask
 from flask import render_template
 
 app = Flask(__name__)
 
+API_KEY = os.environ.get('SS_API_KEY')
+API_SECRET = os.environ.get('SS_API_SECRET')
+
 
 @app.route('/')
 def server():
+    if not API_KEY or not API_SECRET:
+        return "APIKEY／SECRET未设置"
+
     url = 'https://app.arukas.io/api/containers'
     headers = {
-        'authorization': "Basic MzE0NDZlZTgtY2MzOC00NTcwLWJhNzEtNjlhZGFlOGMwMzgxOjFCblRyZ29JRk5PSk02YjB1ZjVTb3k4Q0tjcm5wR1VTVnNKYmowUEdZN1Jzb3dpNGFwa3J0UHpvUzk4UzFPRkU=",
+        'authorization': "Basic %s" % base64.b64encode((API_KEY + ":" + API_SECRET).encode()).decode(),
     }
     resp = requests.get(url, headers=headers)
     val = resp.json()
