@@ -37,7 +37,7 @@ def server():
                     configures['ss'] = {
                         "server": server,
                         "server_port": p,
-                        "password": "kexueshangwang",
+                        "password": os.environ.get('SS_PASSWORD'),
                         "method": "aes-256-cfb"
                     }
                     configures['ss_str'] = json.dumps(configures['ss'])
