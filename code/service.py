@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import base64
 import json
 import os
@@ -8,8 +10,8 @@ from flask import render_template
 
 app = Flask(__name__)
 
-API_KEY = os.environ.get('SS_API_KEY')
-API_SECRET = os.environ.get('SS_API_SECRET')
+API_KEY = os.environ.get('ARUKAS_API_KEY')
+API_SECRET = os.environ.get('ARUKAS_API_SECRET')
 
 
 @app.route('/')
