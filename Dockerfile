@@ -10,7 +10,8 @@ RUN mkdir /root/kcptun
 ADD /kcptun/ /root/kcptun/
 #RUN yum -y install python36u python36u-pip
 RUN yum -y install python-pip
-RUN pip install requests Flask
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8989
 EXPOSE 6688/udp
